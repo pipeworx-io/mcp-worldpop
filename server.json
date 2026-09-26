@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/worldpop",
   "title": "Worldpop",
   "description": "WorldPop 100 m gridded population estimates from the University of Southampton — total population…",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/worldpop",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-worldpop",
