@@ -1,0 +1,55 @@
+[
+  {
+    "name": "worldpop_stats_polygon",
+    "description": "Total population inside any polygon you draw, from WorldPop 100 m gridded population estimates (University of Southampton), for any year 2000-2020. Pass a GeoJSON Polygon or MultiPolygon in WGS84 and get the summed population count back. AUTHORITATIVE for \"how many people live inside this boundary\" at arbitrary geometry — a catchment, a flood extent, a service area, a proposed district — where census tables only answer for official administrative units. Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "geojson": {
+          "type": "object",
+          "description": "A GeoJSON geometry in WGS84 (lon, lat) — {\"type\":\"Polygon\",\"coordinates\":[[[lon,lat],...]]} or a MultiPolygon. A Feature or FeatureCollection is unwrapped for you; the ring must be closed (first point repeated last)."
+        },
+        "year": {
+          "type": "number",
+          "description": "Year of the population surface, 2000-2020 (default 2020)."
+        },
+        "dataset": {
+          "type": "string",
+          "description": "WorldPop dataset id — \"wpgppop\" (population count, default) or \"wpgpas\" (age and sex structures). Call worldpop_datasets for the list."
+        },
+        "runasync": {
+          "type": "boolean",
+          "description": "Return the task id immediately instead of waiting for the result. Default false — the tool polls until the job finishes (about 3-10 seconds)."
+        }
+      },
+      "required": [
+        "geojson"
+      ]
+    }
+  },
+  {
+    "name": "worldpop_datasets",
+    "description": "List the WorldPop datasets and services the stats API exposes — which population surfaces (total counts, age/sex structures) can be summed over a polygon, with the description of what each covers. Keyless. Call this before worldpop_stats_polygon if you need something other than total population.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "worldpop_task_status",
+    "description": "Check or collect a WorldPop stats job by its task id. WorldPop runs polygon statistics asynchronously; pass the taskid returned by worldpop_stats_polygon (with runasync) to get the state and, once finished, the population result. Keyless.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "taskid": {
+          "type": "string",
+          "description": "Task id from worldpop_stats_polygon, e.g. \"a684d415-9546-5242-85e9-6cf22992eb5e\"."
+        }
+      },
+      "required": [
+        "taskid"
+      ]
+    }
+  }
+]
