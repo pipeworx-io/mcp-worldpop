@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-worldpop",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "WorldPop 100 m gridded population estimates from the University of Southampton — total population inside any polygon you supply, for any year from 2000 to 2020, plus the age and sex structures behind it.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "worldpop",
     "gatewaySlug": "worldpop",
-    "sourceHash": "v1-2622871b69a062cdd4763501eeafc02ef898e32fd88dca00cfd6add967740bd3",
-    "sourceCommit": "98853f34516646cb7c4c1460f09249b262c0269e"
+    "sourceHash": "v1-6ec57464193cbc7b68dcdf7ae15587adabc3f1b6585a38c4c6e869ceedfa3722",
+    "sourceCommit": "78b905fa3a6880dfb85c79150f4bffe8cf50ef00"
   }
 }
